@@ -1,0 +1,15 @@
+{
+  "name": "patternstack",
+  "version": "0.0.1",
+  "description": "A PatternFly node.js server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bleathem@gmail.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hapi": "^16.0.2"
+  }
+}
