@@ -10,6 +10,10 @@
   "author": "bleathem@gmail.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "config-chain": "^1.1.11",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "patternfly": "^3.17.0"
   }
 }

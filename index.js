@@ -1,12 +1,12 @@
 'use strict';
 
-const express = require('express')
-const app = express()
+var app   = require('./lib/app.js')
+  , http = require('http')
+  , port  = app.get('port')
+  , ip = app.get('base url')
+  ;
 
-app.get('/', function (req, res) {
-  res.send('Hello world Express app!')
-})
-
-app.listen(8080, function () {
-  console.log('Example app listening on port 8080!')
-})
+var server = http.createServer(app);
+server.listen(port, ip, function() {
+  console.log("App started at: " + new Date() + " on port: " + port);
+});
