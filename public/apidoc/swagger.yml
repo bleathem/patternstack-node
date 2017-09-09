@@ -1,0 +1,63 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: PatternStack-node Sample API
+  description: A sample API for PatternStack-node
+  contact:
+    name: Brian Leathem
+    email: bleathem@gmail.com
+  license:
+    name: apache-2.0
+    url: 'https://opensource.org/licenses/apache-2.0'
+host: 'localhost:3000'
+schemes:
+  - http
+paths:
+  /users:
+    get:
+      tags:
+        - user
+      summary: Retrieves all Users
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+  '/users/{userId}':
+    get:
+      tags:
+        - user
+      summary: Find a User by Id
+      description: Returns a single User
+      operationId: getUser
+      produces:
+        - application/json
+      parameters:
+        - name: userId
+          in: path
+          description: Id of the User to return
+          required: true
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/User'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: User not found
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      username:
+        type: string

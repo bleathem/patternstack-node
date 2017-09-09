@@ -1,19 +1,26 @@
 {
-  "name": "patternstack",
+  "name": "patternstack-node",
   "version": "0.0.1",
   "description": "A PatternFly node.js server",
-  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run serve",
+    "serve": "node server.js",
+    "serve:dev": "nodemon server.js",
+    "docker:build": "docker build -t patternstack/patternstack-node .",
+    "docker:dev": "docker run -p 3000:8080 -v ${PWD}/lib:/usr/src/app/lib -v ${PWD}/public:/usr/src/app/public -d patternstack/patternstack-node npm run serve:dev"
   },
   "author": "bleathem@gmail.com",
   "license": "Apache-2.0",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "config-chain": "^1.1.11",
-    "cors": "^2.8.1",
-    "express": "^4.14.0",
-    "patternfly": "^3.17.0"
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^2.6.3",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

@@ -1,11 +1,16 @@
-FROM node:4.7.2
+FROM node:7
 
-RUN mkdir /src
+# Create app directory
+WORKDIR /usr/src/app
 
-WORKDIR /src
-ADD package.json /src/package.json
+# Install app dependencies
+COPY package.json package-lock.json ./
+
 RUN npm install
 
-EXPOSE 8080
+# Bundle app source
+COPY . .
 
-CMD npm start
+ENV PORT 8080
+EXPOSE 8080
+CMD [ "npm", "start" ]
